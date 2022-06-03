@@ -69,13 +69,15 @@ function dramaMoviesScore(movies) {
 function orderByYear(movies) {
  let newArr = JSON.parse(JSON.stringify(movies));
 
-  return movisList = newArr.sort((first,second)=>{
+  let movisList = newArr.sort((first,second)=>{
     if(first.age > second.age){
       return 1
     }else{
       return -1
     }
   })
+  
+  return movisList
 };
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles

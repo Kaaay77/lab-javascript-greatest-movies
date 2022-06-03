@@ -48,23 +48,21 @@ function scoresAverage(movies) {
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(movies) {
 
-  //let newArr = JSON.parse(JSON.stringify(movies))
   let counter = 0;
-  let total = movies.reduce((acc,elem) =>{
-     if(elem.genre.includes('Drama') ){
-      counter++
-      return acc + elem.score
-    }else{
-      counter++
-      return acc
-      
+  let total = movies.reduce((acc, elem) => {
+    if (elem.genre.includes('Drama')) {
+      counter++;
+      return acc + elem.score;
     }
-      
-  },0)
-  if (total.length === 0){
-    return 0}
-  let avg = total / movies.length
-  return Number(avg.toFixed(2))
+    return acc;
+  }, 0);
+  if (total === 0) {
+    total = 0;
+    return 0;
+  } else {
+    total = total / counter;
+    return Number(total.toFixed(2));
+  }
 }
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)

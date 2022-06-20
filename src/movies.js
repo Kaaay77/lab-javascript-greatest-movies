@@ -69,30 +69,34 @@ function dramaMoviesScore(movies) {
 function orderByYear(movies) {
  let newArr = JSON.parse(JSON.stringify(movies));
 
-  let movisList = newArr.sort((first,second)=>{
-    if(first.age > second.age){
-      return 1
-    }else{
+  newArr.sort((first,second)=>{
+    if(first.year > second.year){
       return -1
+    }else{
+      return 1
     }
-  })
-  
-  return movisList
+  }).reverse()
+  return newArr
 };
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
 function orderAlphabetically(movies) {
     
  let newArr = JSON.parse(JSON.stringify(movies));
-
- let movList = newArr.sort((first,second) => {
-    if (newArr.length <= 20){
-      return 1
-    }else{
-      return -1
-    }
- })
  
+ newArr.sort((a,b) =>{
+   if (a.title > b.title){
+     return 1;
+   }else if (a.title < b.title){
+     return -1;
+   }else{
+     return 0
+   }
+
+ })
+ newArr.map(peliculas => peliculas.title);
+ newArr.slice(0,20);
+return newArr
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
